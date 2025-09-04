@@ -1,4 +1,5 @@
 
+import { LiaDemocratSolid } from "react-icons/lia";
 import styled, {keyframes, css}  from "styled-components"; 
 
 export const Container = styled.div`
@@ -37,10 +38,11 @@ const animate = keyframes`
     }
 `;
 
-export const SubmitButton = styled.button.attrs(props =>({
+export const SubmitButton = styled.button.attrs(props => ({
     type: 'submit',
-    disabled: props.loading,
-}))`  
+    disabled: props.loading ? true : false,  // garante booleano real
+}))`
+
     background: #0D2636;
     border: 0;
     border-radius: 5px; 
@@ -67,3 +69,38 @@ export const SubmitButton = styled.button.attrs(props =>({
 `;
 
 
+
+export const List = styled.ul`
+    list-style: none; /* Remove os marcadores padrão da lista */
+    margin-top: 20px; /* Espaço acima da lista */
+
+    li{
+        padding: 15px 0; /* Espaço interno em cima e embaixo de cada item */
+        display: flex; /* Ativa o FLexbox para os itens */
+        flex-direction: row; /* Organiza os itens em linha */
+        align-items: center; /* Alinha verticalmente ao centro  */
+        justify-content: space-between; /* Espaça os itens nas extremidades */
+
+        & + li{
+        border-top: 3px solid #eee /* Colocando borda de divisão entre os itens do segundo para baixo */
+        }
+
+        a{
+            color: #0D2636;
+            text-decoration: none;
+        }
+    }
+`;
+
+/* .attrs para mostrar que é do type button (ou outro) */
+export const DeleteButton =styled.button.attrs({
+    type: 'button'
+})`
+    cursor: pointer;
+    background: transparent;
+    color: #0D2636;
+    border:0;
+    padding: 8px 7px;
+    outline: 0;
+    border-radius: 4px;
+`;
